@@ -24,7 +24,7 @@ public class LinearQueue {
             }
             else{
                 NumCount++;
-                QueueArray[++rear];
+                QueueArray[++rear] = number;
     
                 // rear++;
                 // QueueArray[rear] = number;
