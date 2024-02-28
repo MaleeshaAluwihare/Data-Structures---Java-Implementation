@@ -9,94 +9,98 @@ public class LinkList {
         first = null;
     }
 
+    //display the link list 
     public void displayList(){
 
-        Link currunt = first;
+        Link current = first;
 
-        while(currunt != null){
-            currunt.displayLink();
-            currunt = currunt.next;
+        while( current != null ){
+            current.displayLink();
+            current = current.next;
         }
     }
 
     //you can change the datatype based on your need 
-    public boolean find(int key){
+    //find Link
+    public Link find(int key){
 
-        Link cur = first;
-        while(cur != null){
-            if(cur.iData == key){
-                return true;
+        Link current = first;
+
+        while(current != null){
+            if(current.iData == key){
+                return current;
             }
             else{
-                cur = cur.next;
+                current = current.next;    
             }
         }
-        System.out.println("Value is not found in linkList");
-        return false;
+        System.out.println("Link with"+key+"is not found");
+        return null;
     }
 
+    //insert new link to first in LinkList
     public void insertFirst(int num){
 
         Link newLink = new Link(num);
 
         newLink.next = first;
-        first = newLink;  
-
+        first = newLink;
     }
 
-    public boolean insertAfter(int key, int data){
-        
-        Link newLink = new Link(data);
+    //insert into middle
+    public boolean insetAfter(int key,int num){
 
-        Link currunt = first;
+        Link newLink = new Link(num);
 
-        while(currunt != null){
+        Link current = first;
 
-            if(currunt.iData == key){
-                newLink.next = currunt.next;
-                currunt.next = newLink;
+        while (current != null) {
+            if(current.iData == key){
+                newLink.next = current.next;
+                current.next = newLink;
                 return true;
             }
             else{
-                currunt = currunt.next;
+                current = current.next;
             }
         }
         return false;
 
     }
 
+    //delete first Link of list
     public Link deleteFirst(){
 
         Link temp = first;
-
         first = first.next;
 
         return temp;
     }
 
-    public boolean delete(int key){
+    //delete After
+   public boolean deleteAfter(int key){
 
-        Link currunt = first;
-        Link previous = first;
+    Link currrent = first;
+    Link previous = first;
 
-        while(currunt != null){
+    while (currrent != null) {
 
-            if(currunt.iData == key){
+        if(currrent.iData == key){
 
-                if(currunt == first){   //if first is deleting
-                    first = first.next;
-                    return true;
-                }
-                else{                   //if middle is deleting
-                    previous.next = currunt.next;
-                    return true;
-                }  
+            if(currrent == first){  //if key is first Link
+
+                first = first.next;
+                return true;
             }
             else{
-                previous = currunt;
-                currunt = currunt.next;
+                previous.next = currrent.next;  //if key is middle Link
+                return true;
             }
-        }
-        return false;
+        }else{
+            previous = currrent;
+            currrent = currrent.next;
+        }   
     }
+    return false;
+   }
 }

@@ -1,12 +1,12 @@
 package LinkList;
 
-public class Link {
-    
+public class Link{
+
     public int iData;
     public Link next;
 
-    public Link(int s){
-        iData = s;
+    public Link(int num){
+        iData = num;
         next = null;
     }
 
