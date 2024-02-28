@@ -103,4 +103,38 @@ public class LinkList {
     }
     return false;
    }
+
+    //delete After if have multiple keys
+    public boolean deleteMultipleKey(int key){
+
+        Link current = first;
+        Link previous = first;
+        int LinkDeleted = 0;
+
+        while (current != null) {
+
+            if(current.iData == key){
+
+                if(current == first){
+                    first = first.next;
+                    LinkDeleted++;
+                }
+                else{
+                    previous.next = current.next;
+                    LinkDeleted++;
+                }
+            }
+            
+            previous = current;
+            current = current.next;
+        }
+        if(LinkDeleted > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 }
