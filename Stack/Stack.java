@@ -21,7 +21,7 @@ public class Stack{
         }
         else{
             /*top++;
-             * StackArray[++top] = number;
+             * StackArray[top] = number;
              */
             StackArray[++top] = number;
         }
