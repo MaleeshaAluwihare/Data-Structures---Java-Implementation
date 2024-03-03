@@ -11,6 +11,6 @@ public class Link{
     }
 
     public void displayLink(){
-        System.out.println(iData);
+        System.out.print(iData + " ");
     }
 }
