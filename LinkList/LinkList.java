@@ -18,6 +18,7 @@ public class LinkList {
             current.displayLink();
             current = current.next;
         }
+        System.out.println();
     }
 
     //you can change the datatype based on your need 
@@ -48,7 +49,7 @@ public class LinkList {
     }
 
     //insert into middle
-    public boolean insetAfter(int key,int num){
+    public void insetAfter(int key,int num){
 
         Link newLink = new Link(num);
 
@@ -58,14 +59,14 @@ public class LinkList {
             if(current.iData == key){
                 newLink.next = current.next;
                 current.next = newLink;
-                return true;
+                System.out.println("new link inserted after"+":"+key);
+                return;
             }
             else{
                 current = current.next;
             }
         }
-        return false;
-
+        System.err.println("No link found match to"+":"+key);
     }
 
     //delete first Link of list
@@ -105,7 +106,7 @@ public class LinkList {
    }
 
     //delete After if have multiple keys
-    public boolean deleteMultipleKey(int key){
+    public void deleteMultipleKey(int key){
 
         Link current = first;
         Link previous = first;
@@ -129,10 +130,10 @@ public class LinkList {
             current = current.next;
         }
         if(LinkDeleted > 0){
-            return true;
+            System.out.println("Link deleted:"+" "+key);
         }
         else{
-            return false;
+            System.err.println("Link with"+" "+key+" "+"not found");
         }
     }
 }
